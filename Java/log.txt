@@ -1,0 +1,19 @@
+Apr. 15, 2019
+Verified IOA value extraction (menu function 3)
+
+Apr. 21, 2019
+Packet fields updated with TCP SYN/ACK/FIN/RESET flags
+
+Apr. 22, 2019 
+AnalyzedPacket not completed
+
+May. 8, 2019
+- Important Bug in Java Parser:
+In ReadPacket.java, parseJson():
+JSON dissection from Wireshark:
+	• there used to be a blank row between packets. So original parse use this to detect the end of packet. 
+	• My recent exported dissection doesn't have this blank row any more. 
+	• So it's wrong from the first step of parsing initial packets
+- Time Delta:
+﻿frame.time_delta -- between two consecutive packets
+Use Wireshark to add column of time delta; export to csv; calculate in python

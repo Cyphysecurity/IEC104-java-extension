@@ -1,0 +1,6 @@
+BufferedWriter writer = null;
+FileWriter outFile;
+String outFileName = "output/IEC104-Analysis_";
+outFileName += inFile + getDateTime() + ".txt";
+outFile = new FileWriter(outFileName);
+writer = new BufferedWriter(outFile);
