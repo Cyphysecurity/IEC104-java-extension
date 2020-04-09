@@ -22,7 +22,7 @@ public class CsvFileWriter {
 
         for (String ip : dMap.keySet()) {
             AnalyzedObj s = dMap.get(ip);
-            String filename = "output/" + ip + ".csv";    // each source is a separate CSV file
+            String filename = ip + ".csv";    // each source is a separate CSV file
             try {
                 fWriter = new FileWriter(filename);
                 fWriter.append(HEADER);

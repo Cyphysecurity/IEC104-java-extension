@@ -188,11 +188,15 @@ public class ReadPackets {
 	// Feature from Kelvin's original parser
 	// output: txt file, log of IPs, direction, etc.
 	private BufferedWriter txtGenerator (File inFile) {
+		System.out.println("enter textGenerator...");
 		BufferedWriter writer = null;
 		try {
 			FileWriter outFile;
-			String outFileName = "output/IEC104-Analysis_";
+			String outFileName = "IEC104-Analysis_";
+			//System.out.println(outFileName);
+			System.out.println("current JSON file is: " + inFile);
 			outFileName += inFile + getDateTime() + ".txt";
+			System.out.println("output log file is: " + outFileName);
 			outFile = new FileWriter(outFileName);
 			writer = new BufferedWriter(outFile);
 		} catch (IOException e) {
@@ -231,7 +235,8 @@ public class ReadPackets {
 		System.out.println("************* Start reading in packets... *********************");
 		Packet packet = null;
 		APCI apci = null;
-		ASDU asdu = null;
+		//ASDU asdu = null;
+		ASDU asdu = new ASDU();
 		IOA ioa = null;
 		String line = null;
 		String fieldName = "";
@@ -316,7 +321,7 @@ public class ReadPackets {
 					}else if (fieldName.contains("104apci.")) {
 						apci.setFieldValue(fieldName, getValue(line));
 					}else if (fieldName.equals("104asdu.typeid")) {
-						asdu = new ASDU();
+						//asdu = new ASDU();
 						apci.addASDU(asdu);
 						asdu.setFieldName(fieldName, getValue(line));
 					}else if (fieldName.equals("104asdu.sq") || fieldName.equals("104asdu.numix")
@@ -327,6 +332,7 @@ public class ReadPackets {
 					} else if (fieldName.equals("IOA:")) {
 						ioa = new IOA();
 						asdu.addIOA(ioa);
+						fieldName = "IOA";
 						ioa.setFieldName(fieldName, getValue(line));
 					} else if (fieldName.equals("104asdu.ioa") || fieldName.equals("104asdu.float") || fieldName.equals("104asdu.vti.v") || fieldName.equals("104asdu.vti.t") || fieldName.equals("104asdu.normval") || fieldName.equals("104asdu.cp56time")
 							|| fieldName.equals("104asdu.qds.ov") || fieldName.equals("104asdu.qds.bl") || fieldName.equals("104asdu.qds.sb") || fieldName.equals("104asdu.qds.nt") || fieldName.equals("104asdu.qds.iv")

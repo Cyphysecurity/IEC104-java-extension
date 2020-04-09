@@ -37,7 +37,7 @@ public class CsvFileWriter1 {
     public void initialize() {
         //this.HEADER = "";
         System.out.format("CsvFileWriter1: append mode is: %b\nautoFlush mode is: %b\n", append, autoFlush);
-        this.filePath = "output/apdu_level.csv";
+        this.filePath = "apdu_level.csv";
         this.file = new File(filePath);
         try {
             boolean result = file.createNewFile();

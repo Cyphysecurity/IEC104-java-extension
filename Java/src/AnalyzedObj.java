@@ -550,7 +550,7 @@ public class AnalyzedObj {
 					"srcIP:%s,dstIP:%s,asduAddr:%d,asduType:%d,numOfPackets:%d,firstTimeSeen:%.8f,lastTimeSeen:%.8f,averageTimeDelta:%.8f,ioaList:%s",
 					srcIP, dstIP, asduAddr, asduType, numTimesReported, firstTimeSeen, lastTimeSeen, averageTimeDelta, getArrayAsString(ioaArr));
 		}
-
+		System.out.println(objStr);
 		return objStr;
 	}
 

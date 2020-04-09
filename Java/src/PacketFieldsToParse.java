@@ -55,8 +55,8 @@ public enum PacketFieldsToParse {
 	asduOa ("104asdu.oa"),
 	asduAddr ("104asdu.addr"),
 	// IO fields
-	//asduIOA ("IOA:"),
-	asduIOA ("IOA"),
+	asduIOA ("IOA:"),
+	//asduIOA ("IOA"),
 	asduIoa ("104asdu.ioa"),
 	asduFloat ("104asdu.float"),
 	asduQdsOv ("104asdu.qds.ov"),
