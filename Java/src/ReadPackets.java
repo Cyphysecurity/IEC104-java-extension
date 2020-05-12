@@ -235,8 +235,8 @@ public class ReadPackets {
 		System.out.println("************* Start reading in packets... *********************");
 		Packet packet = null;
 		APCI apci = null;
-		//ASDU asdu = null;
-		ASDU asdu = new ASDU();
+		ASDU asdu = null;
+		//ASDU asdu = new ASDU();
 		IOA ioa = null;
 		String line = null;
 		String fieldName = "";
@@ -321,7 +321,7 @@ public class ReadPackets {
 					}else if (fieldName.contains("104apci.")) {
 						apci.setFieldValue(fieldName, getValue(line));
 					}else if (fieldName.equals("104asdu.typeid")) {
-						//asdu = new ASDU();
+						asdu = new ASDU();
 						apci.addASDU(asdu);
 						asdu.setFieldName(fieldName, getValue(line));
 					}else if (fieldName.equals("104asdu.sq") || fieldName.equals("104asdu.numix")
